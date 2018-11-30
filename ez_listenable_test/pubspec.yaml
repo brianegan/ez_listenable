@@ -1,0 +1,13 @@
+name: ez_listenable_test
+description: A library that makes it convenient to test EzListenable classes
+version: 0.1.0
+homepage: https://github.com/brianegan/ez_listenable
+author: Brian Egan <brian@brianegan.com>
+
+environment:
+  sdk: '>=2.0.0 <3.0.0'
+
+dependencies:
+  ez_listenable:
+    path: ../ez_listenable
+  test: ^1.0.0

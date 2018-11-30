@@ -1,0 +1,14 @@
+name: ez_listenable
+description: A set utilities that allow you to listen to objects and notify listeners of changes
+version: 0.1.0
+homepage: https://github.com/brianegan/ez_listenable
+author: Brian Egan <brian@brianegan.com>
+
+environment:
+  sdk: '>=2.0.0 <3.0.0'
+
+dependencies:
+  meta: '>=1.1.5 <2.0.0'
+
+dev_dependencies:
+  test: '>=1.0.0 <2.0.0'
