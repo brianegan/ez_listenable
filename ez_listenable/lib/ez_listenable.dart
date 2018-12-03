@@ -288,7 +288,10 @@ class EzComputedValue<T> extends EzNotifier implements EzValueListenable<T> {
     super.dispose();
   }
 
-  void _updateValue() => _value = compute();
+  void _updateValue() {
+    _value = compute();
+    notifyListeners();
+  }
 
   @override
   String toString() {

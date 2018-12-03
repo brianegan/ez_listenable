@@ -92,13 +92,33 @@ void main() {
       expect(addOne.value, 1);
     });
 
-    test('value should be recomputed when the ', () {
+    test('value should be recomputed when the source invokes listeners', () {
       final counter = EzValue<int>(0);
       final addOne = EzComputedValue<int>(counter, () => counter.value + 1);
 
       counter.value = 1;
 
       expect(addOne.value, 2);
+    });
+
+    test('should notify listeners when they are registered', () {
+      final counter = EzValue<int>(0);
+      final addOne = EzComputedValue<int>(counter, () => counter.value + 1);
+      var callCount = 0;
+      void listener() => callCount++;
+
+      addOne.addListener(listener);
+
+      counter.value = 1;
+      counter.value = 2;
+
+      expect(callCount, 2);
+
+      addOne.removeListener(listener);
+
+      counter.value = 3;
+
+      expect(callCount, 2);
     });
 
     test('should recomputed based on multiple listenables', () {
